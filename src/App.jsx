@@ -1,8 +1,11 @@
+import Combine from "./component/Combine";
 
-import Resume from "./component/Resume";
-
-const App = () => {
-  return <Resume/>;
-};
+const App= () => {
+  return(
+    <>
+      <Combine/>
+    </>
+  )
+}
 
 export default App;
