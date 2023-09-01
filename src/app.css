@@ -5,11 +5,8 @@
 }
 
 .app {
-    display: flex;
-    flex-direction: row;
-    align-items: center; /* Center horizontally */
-    justify-content: center; /* Center vertically */
-    height: 100vh; /* Set the height of the container to 100% of the viewport height */
+    margin-top: 20vh;
+    margin-left: 500px;
   }
   
   .app button {
