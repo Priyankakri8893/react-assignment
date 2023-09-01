@@ -1,11 +1,7 @@
-import Combine from "./component/Combine";
-
 const App= () => {
-  return(
-    <>
-      <Combine/>
-    </>
-  )
+    return(
+        <>hello</>
+    )
 }
 
 export default App;
