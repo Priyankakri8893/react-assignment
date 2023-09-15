@@ -1,22 +1,25 @@
-// import Parent from "./Parent"
+import { useReducer } from "react";
 
-// const App= () => {
-//   return(
-//     <>
-//       <Parent name="Priyanka Kumari" age= "23"/>
-//     </>
-//   )
-// }
+const initialValue= 0;
 
-// export default App;
+const reducer= (state, action) => {
+  if(action.type === "increase"){
+    return state= state+1
+  }
 
-
-import Parent from "./Parent"
+  if(action.type === "decrease"){
+    if(state === 0) return state = 0
+    return state= state-1
+  }
+}
 
 const App= () => {
+  const [count, dispatch]= useReducer(reducer, initialValue)
   return(
     <>
-      <Parent/>
+      <button onClick={() => dispatch({type: "increase"})}>+</button>
+      <span>{count}</span>
+      <button onClick={() => dispatch({type: "decrease"})}>-</button>
     </>
   )
 }
