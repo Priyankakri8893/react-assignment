@@ -1,28 +1,29 @@
-import { useReducer } from "react";
-
-const initialValue= 0;
-
-const reducer= (state, action) => {
-  if(action.type === "increase"){
-    return state= state+1
-  }
-
-  if(action.type === "decrease"){
-    if(state === 0) return state = 0
-    return state= state-1
-  }
-}
+import { useEffect, useRef, useState } from "react"
 
 const App= () => {
-  const [count, dispatch]= useReducer(reducer, initialValue)
+  const [input, setInput]= useState()
+
+  const count= useRef(0)
+
+  useEffect( () => {
+    count.current= count.current + 1
+  })
+
+  const change= useRef()
+
+  const colorChange= () => {
+    change.current.focus()
+    change.current.style.backgroundColor= "red"
+  }
+
   return(
     <>
-      <button onClick={() => dispatch({type: "increase"})}>+</button>
-      <span>{count}</span>
-      <button onClick={() => dispatch({type: "decrease"})}>-</button>
+      <input type="text" onChange={ (e) => setInput(e.target.value)} value={input} ref={change}/>
+      <p>number of times component render: {count.current}</p>
+      <button onClick={colorChange}>colorChange</button>
     </>
   )
 }
 
-export default App;
 
+export default App;
